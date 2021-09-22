@@ -57,15 +57,21 @@ const NavLink = styled(Link)`
     text-decoration: none;
     height: 100%;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 
-    &.active {
+    &:hover {
         color: #56B460;
     }
 `
 
 const Bars = styled(FaBars)`
     display: none;
-    color: #56B460;
+    color: black;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        color: #56B460;
+    }
 
     @media screen and (max-width: 768px) {
         display: block;
