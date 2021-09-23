@@ -35,7 +35,16 @@
 .icon-bars:hover {
   color: #56b460;
 }
+.nav-links {
+  justify-content: space-between;
+}
+Button.menu-link {
+  text-transform: capitalize;
+}
 
+.menu-link:hover {
+  color: #56b460;
+}
 @media screen and (max-width: 768px) {
   .icon-bars {
     display: block;
