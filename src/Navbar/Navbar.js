@@ -40,8 +40,6 @@ const Nav = styled.nav`
     height: 60px;
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem calc((100vw - 1000px) / 2);
-    z-index: 10;
     padding: 12px 32px;
     margin-right: 36px;
 
@@ -87,7 +85,6 @@ const Bars = styled(FaBars)`
 const NavMenu = styled.div`
     display: contents;
     align-items: center;
-    margin-right: -24px;
 
     @media screen and (max-width: 786px) {
         display: none;

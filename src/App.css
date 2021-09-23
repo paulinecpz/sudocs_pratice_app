@@ -17,3 +17,33 @@
   font-size: calc(10px + 2vmin);
   color: black;
 }
+
+.app-bar {
+  background: transparent;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+.app-bar img {
+  margin-right: 48px;
+}
+.icon-bars {
+  display: none;
+  color: black;
+  transition: all 0.2s ease-in-out;
+}
+.icon-bars:hover {
+  color: #56b460;
+}
+
+@media screen and (max-width: 768px) {
+  .icon-bars {
+    display: block;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  Button.menu-link {
+    display: none;
+  }
+}
