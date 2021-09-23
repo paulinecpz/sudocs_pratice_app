@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import logo from '../logo.svg';
-import styled from 'styled-components'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import { FaBars } from 'react-icons/fa'
-// import MenuIcon from '@mui/icons-material/Menu';
+import { FaBars } from 'react-icons/fa';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const MUInav = () => {
   return (
@@ -27,7 +26,8 @@ const MUInav = () => {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <FaBars className="icon-bars" />
+            {/* <FaBars className="icon-bars" /> */}
+            <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
