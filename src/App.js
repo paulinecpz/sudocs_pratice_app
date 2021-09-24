@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import Navbar from './Navbar/Navbar';
 import MuiNav from './Navbar/MuiNav';
 import { BrowserRouter as Router } from 'react-router-dom'
 function App() {

@@ -1,9 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -11,13 +9,18 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import FeaturedPlayListOutlinedIcon from '@mui/icons-material/FeaturedPlayListOutlined';
+import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
+import './Navbar.css'
 
+const menuLinks = ['Features', 'Pricing', 'About', 'Login'];
+const menuIcons = [<FeaturedPlayListOutlinedIcon />, <CreditCardOutlinedIcon />, <HelpOutlineOutlinedIcon />, <LoginOutlinedIcon />];
 export default function MenuDrawer() {
-  const [state, setState] = React.useState({
-    left: false,
-  });
+  const [state, setState] = React.useState(false);
 
-  const toggleDrawer = (anchor, open) => (event) => {
+  const toggleDrawer = (open) => (event) => {
     if (
       event &&
       event.type === 'keydown' &&
@@ -26,32 +29,21 @@ export default function MenuDrawer() {
       return;
     }
 
-    setState({ ...state, [anchor]: open });
+    setState(open);
   };
 
-  const list = (anchor) => (
+  const list = () => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      sx={{ width: 250 }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        {menuLinks.map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              {menuIcons[index]}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -62,10 +54,9 @@ export default function MenuDrawer() {
 
   return (
     <div>
-      {['right'].map((anchor) => (
-        <React.Fragment key={anchor}>
+        <React.Fragment key='right'>
             <IconButton
-            onClick={toggleDrawer(anchor, true)}
+            onClick={toggleDrawer(true)}
             size="large"
             edge="start"
             color="inherit"
@@ -75,15 +66,14 @@ export default function MenuDrawer() {
             <MenuIcon />
             </IconButton>
           <SwipeableDrawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
+            anchor='right'
+            open={state}
+            onClose={toggleDrawer(false)}
+            onOpen={toggleDrawer(true)}
           >
-            {list(anchor)}
+            {list()}
           </SwipeableDrawer>
         </React.Fragment>
-      ))}
     </div>
   );
 }
