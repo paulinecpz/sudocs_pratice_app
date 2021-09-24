@@ -4,11 +4,12 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import MenuDrawer from './MenuDrawer'
+import { useMediaQuery } from 'react-responsive'
 
 const MUInav = () => {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' })
+
   return (
     <Box sx={{ flexGrow: 1, }}>
       <AppBar position="static" color="transparent" className="app-bar">
@@ -18,19 +19,9 @@ const MUInav = () => {
           <Button color="inherit" className="menu-link">Pricing</Button>
           <Button color="inherit" className="menu-link">About</Button>
           <Button color="inherit" className="menu-link">Login</Button>
-          <IconButton
-
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+          {isTabletOrMobile && <MenuDrawer />}
         </Toolbar>
       </AppBar>
-      <MenuDrawer />
     </Box>
   );
 }

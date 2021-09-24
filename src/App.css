@@ -27,7 +27,7 @@
 .app-bar img {
   margin-right: 48px;
 }
-.icon-bars {
+MenuDrawer.icon-bars {
   display: none;
   color: black;
   transition: all 0.2s ease-in-out;
@@ -46,7 +46,7 @@ Button.menu-link {
   color: #56b460;
 }
 @media screen and (max-width: 768px) {
-  .icon-bars {
+  MenuDrawer.icon-bars {
     display: block;
     font-size: 1.8rem;
     cursor: pointer;
