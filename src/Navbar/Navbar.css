@@ -10,12 +10,6 @@
 .nav-links {
   justify-content: space-between;
 }
-.menu-links Button {
-  text-transform: capitalize;
-}
-.menu-links Button:hover {
-  color: #56b460;
-}
 .menu-links {
   display: flex;
 }

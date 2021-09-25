@@ -1,92 +1,45 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import logo from '../logo.svg';
-import styled from 'styled-components'
-import { NavLink as Link } from 'react-router-dom'
-import { FaBars } from 'react-icons/fa'
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import MenuDrawer from './MenuDrawer';
+import menuLinks from './menuData';
+import { MenuItem } from '@mui/material';
+import { useMediaQuery } from 'react-responsive';
+import { Link } from "react-router-dom";
+import './Navbar.css'
+import { styled } from '@mui/material/styles';
 
 const Navbar = () => {
-    const [showMenu, setShowMenu] = useState(false);
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' })
 
-    return (
-        <>
-            <Nav>
-                <NavLink to="/">
-                    <img src={logo} className="nav-logo" alt="logo" />
-                </NavLink>
-                <Bars onClick={()=> setShowMenu(!showMenu)}/>
-                <NavMenu>
-                    <NavLink to="/features" activeStyle>
-                        Features
-                    </NavLink>
-                    <NavLink to="/pricing" activeStyle>
-                        Pricing
-                    </NavLink>
-                    <NavLink to="/about" activeStyle>
-                        About
-                    </NavLink>
-                    <NavLink to="/login" activeStyle>
-                        Login
-                    </NavLink>
-                </NavMenu>
-            </Nav>
-        </>
-    )
+  return (
+    <Box sx={{ flexGrow: 1, }}>
+      <AppBar position="static" color="transparent" className="app-bar">
+        <Toolbar className="nav-links">
+          <MyMenuItem disableRipple component={Link} to='/' color="inherit" className="nav-logo"><img src={logo} alt="logo" /></MyMenuItem>
+          {!isTabletOrMobile && 
+            <div className="menu-links">
+              {menuLinks.map((link) => {
+                const {id, url,text} = link;
+                return <MyMenuItem disableRipple component={Link} to={url} color="inherit" variant="text" key={id}>{text}</MyMenuItem>
+              })}
+            </div>
+          }
+          {isTabletOrMobile && <MenuDrawer />}
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
 }
-
 export default Navbar
 
-const Nav = styled.nav`
-    background: transparent;
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 32px;
-    margin-right: 36px;
-
-    img {
-        margin-right: 48px;
-    }
-`
-
-const NavLink = styled(Link)`
-    color: black;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    height: 100%;
-    cursor: pointer;
+const MyMenuItem = styled(MenuItem)`
     transition: all 0.2s ease-in-out;
 
-    &:hover {
-        color: #56B460;
-    }
-`
-
-const Bars = styled(FaBars)`
-    display: none;
-    color: black;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-        color: #56B460;
-    }
-
-    @media screen and (max-width: 768px) {
-        display: block;
-        position: absolute;
-        top:8px;
-        right:0;
-        transform: translate(-100%, 75%);
-        font-size: 1.8rem;
-        cursor: pointer;
-    }
-`
-
-const NavMenu = styled.div`
-    display: contents;
-    align-items: center;
-
-    @media screen and (max-width: 786px) {
-        display: none;
+    :hover {
+      background-color: transparent;
+      color: #56b460;
     }
 `

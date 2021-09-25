@@ -5,18 +5,12 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import FeaturedPlayListOutlinedIcon from '@mui/icons-material/FeaturedPlayListOutlined';
-import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
-import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
-import './Navbar.css'
+import menuLinks from './menuData';
+import { Link } from "react-router-dom";
+import { styled } from '@mui/material/styles';
 
-const menuLinks = ['Features', 'Pricing', 'About', 'Login'];
-const menuIcons = [<FeaturedPlayListOutlinedIcon />, <CreditCardOutlinedIcon />, <HelpOutlineOutlinedIcon />, <LoginOutlinedIcon />];
 export default function MenuDrawer() {
   const [state, setState] = React.useState(false);
 
@@ -40,14 +34,15 @@ export default function MenuDrawer() {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {menuLinks.map((text, index) => (
-          <ListItem button key={text}>
+        {menuLinks.map((link) => {
+          const {id, url,text,icon} = link;
+          return <ListItem button key={id} component={Link} to={url}>
             <ListItemIcon>
-              {menuIcons[index]}
+              {icon}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
-        ))}
+          })}
       </List>
     </Box>
   );
@@ -55,16 +50,16 @@ export default function MenuDrawer() {
   return (
     <div>
         <React.Fragment key='right'>
-            <IconButton
+            <MenuIconButton
+            style={{ backgroundColor: 'transparent' }}
             onClick={toggleDrawer(true)}
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
           >
             <MenuIcon />
-            </IconButton>
+            </MenuIconButton>
           <SwipeableDrawer
             anchor='right'
             open={state}
@@ -77,3 +72,12 @@ export default function MenuDrawer() {
     </div>
   );
 }
+
+const MenuIconButton = styled(IconButton)`
+    transition: all 0.2s ease-in-out;
+
+    :hover {
+      background-color: transparent;
+      color: #56b460;
+    }
+`
