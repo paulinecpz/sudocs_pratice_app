@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <Box sx={{ flexGrow: 1, }}>
-      <AppBar position="static" color="transparent" className="app-bar">
+      <AppBar position="static" color="transparent" style={{boxShadow: 'none'}} className="app-bar">
         <Toolbar className="nav-links">
           <MyMenuItem disableRipple component={Link} to='/' color="inherit" className="nav-logo"><img src={logo} alt="logo" /></MyMenuItem>
           {!isTabletOrMobile && 
