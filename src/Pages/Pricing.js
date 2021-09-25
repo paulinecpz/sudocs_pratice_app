@@ -2,9 +2,9 @@ import React from 'react'
 
 const Pricing = () => {
     return (
-        <div>
+        <header className="App-header">
             <h1>Pricing</h1>
-        </div>
+        </header>
     )
 }
 

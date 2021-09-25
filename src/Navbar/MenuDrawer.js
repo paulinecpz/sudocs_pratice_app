@@ -36,7 +36,7 @@ export default function MenuDrawer() {
       <List>
         {menuLinks.map((link) => {
           const {id, url,text,icon} = link;
-          if(link.text !== 'Home') {
+          if(link.text !== 'Home' && link.text !== 'Error') {
             return <ListItem button key={id} component={Link} to={url}>
             <ListItemIcon>
               {icon}

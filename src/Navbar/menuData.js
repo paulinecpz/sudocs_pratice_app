@@ -8,6 +8,7 @@ import About from '../Pages/About';
 import Features from '../Pages/Features';
 import Pricing from '../Pages/Pricing';
 import Login from '../Pages/Login';
+import Error from '../Pages/Error';
 
 const menuLinks = [
     {
@@ -38,12 +39,20 @@ const menuLinks = [
         icon: <LoginOutlinedIcon />,
         route: <Login />,
     },
-    {
-        id:4,
+     {
+        id:6,
         url: '/',
         text: 'Home',
         icon: <LoginOutlinedIcon />,
         route: <Home />,
     },
+    {
+        id:5,
+        url: '*',
+        text: 'Error',
+        icon: <LoginOutlinedIcon />,
+        route: <Error />,
+    },
+   
 ]
 export default menuLinks;

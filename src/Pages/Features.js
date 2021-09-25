@@ -2,9 +2,9 @@ import React from 'react'
 
 const Features = () => {
     return (
-        <div>
+        <header className="App-header">
             <h1>Features</h1>
-        </div>
+        </header>
     )
 }
 

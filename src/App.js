@@ -8,7 +8,6 @@ function App() {
     <Router>
       <div className="App">    
         <Navbar />
-        <header className="App-header">
           <Switch>
             {menuLinks.map((link)=>{
               return (
@@ -18,7 +17,6 @@ function App() {
               )
             })}
           </Switch>
-        </header>
       </div>
     </Router>
   );

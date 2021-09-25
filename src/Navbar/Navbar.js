@@ -23,7 +23,7 @@ const Navbar = () => {
             <div className="menu-links">
               {menuLinks.map((link) => {
                 const {id, url,text} = link; 
-                if (link.text !== 'Home') {
+                if (link.text !== 'Home' && link.text !== 'Error') {
                   return <MyMenuItem disableRipple component={Link} to={url} color="inherit" variant="text" key={id}>{text}</MyMenuItem>
                 }
               })}
