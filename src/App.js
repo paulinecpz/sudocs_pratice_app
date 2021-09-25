@@ -1,27 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './Navbar/Navbar';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-// pages
-import Features from './Pages/Features';
-import Pricing from './Pages/Pricing';
-import About from './Pages/About';
-import Login from './Pages/Login';
+import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom';
+import menuLinks from './Navbar/menuData';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
+    <Router>
+      <div className="App">    
         <Navbar />
-      </Router>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Let's build a draft of Sudocs.
-        </p>
-      </header>
-    </div>
+        <header className="App-header">
+          <Switch>
+            {menuLinks.map((link)=>{
+              return (
+                <Route exact path={link.url}>
+                  {link.route}
+                </Route>
+              )
+            })}
+            {/* <Route path={menuLinks.}>
+              <Features />
+            </Route>
+            <Route path={menuLinks.}>
+              <Pricing />
+            </Route>
+            <Route path={menuLinks.}>
+              <About />
+            </Route>
+            <Route path={menuLinks.}>
+              <Login />
+            </Route> */}
+          </Switch>
+        </header>
+      </div>
+    </Router>
   );
 }
 
