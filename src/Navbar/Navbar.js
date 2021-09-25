@@ -22,8 +22,10 @@ const Navbar = () => {
           {!isTabletOrMobile && 
             <div className="menu-links">
               {menuLinks.map((link) => {
-                const {id, url,text} = link;
-                return <MyMenuItem disableRipple component={Link} to={url} color="inherit" variant="text" key={id}>{text}</MyMenuItem>
+                const {id, url,text} = link; 
+                if (link.text !== 'Home') {
+                  return <MyMenuItem disableRipple component={Link} to={url} color="inherit" variant="text" key={id}>{text}</MyMenuItem>
+                }
               })}
             </div>
           }

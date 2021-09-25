@@ -4,9 +4,9 @@ const Home = () => {
     return (
         <>
             <img src={logo} className="App-logo" alt="logo" />
-          <p>
+            <p>
             Let's build a draft of Sudocs.
-          </p>
+            </p>
         </>
     )
 }

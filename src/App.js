@@ -17,18 +17,6 @@ function App() {
                 </Route>
               )
             })}
-            {/* <Route path={menuLinks.}>
-              <Features />
-            </Route>
-            <Route path={menuLinks.}>
-              <Pricing />
-            </Route>
-            <Route path={menuLinks.}>
-              <About />
-            </Route>
-            <Route path={menuLinks.}>
-              <Login />
-            </Route> */}
           </Switch>
         </header>
       </div>
