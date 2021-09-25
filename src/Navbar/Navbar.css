@@ -3,6 +3,7 @@
   height: 60px;
   display: flex;
   justify-content: space-between;
+  box-shadow: none;
 }
 .app-bar img {
   margin-right: 48px;

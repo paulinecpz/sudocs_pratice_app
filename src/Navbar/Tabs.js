@@ -13,8 +13,9 @@ export default function Tabs() {
   return (
     <Box sx={{ width: "80%", typography: "body1" }}>
       <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <TabList onChange={handleChange}>
+        <Box sx={{ 
+          width: "80%",borderBottom: 1, borderColor: "divider" }}>
+          <TabList onChange={handleChange} centered>
             <Tab label="Choose your repositories" value="1" />
             <Tab label="Your plan" value="2" />
           </TabList>
